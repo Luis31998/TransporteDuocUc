@@ -1,0 +1,7 @@
+{
+  "name": "TransporteDuocuc",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
