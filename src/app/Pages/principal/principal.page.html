@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>nombre usuario</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment value="uno" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="uno">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="dos">
+        <ion-icon name="car-outline"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
+</ion-content>

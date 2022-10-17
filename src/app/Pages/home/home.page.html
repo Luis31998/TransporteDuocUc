@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="primary">Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-title></ion-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="full">
+        <ion-label position="stacked">Usuario</ion-label>
+        <ion-input type="text" minlength="3" maxlength="8" [(ngModel)]="user.usuario"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input type="password" minlength="4" maxlength="4" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+      <ion-row>
+
+        <ion-col>
+          <ion-button id="ingre" expand="full" (click)="selector()">Ingresar</ion-button>
+        </ion-col>
+
+        <ion-col>
+          <ion-button expand="full" (click)="recuperar()">Recuperar Contraseña</ion-button>
+        </ion-col>
+
+      </ion-row>
+      
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
