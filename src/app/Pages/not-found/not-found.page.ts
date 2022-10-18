@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-not-found',
@@ -7,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundPage implements OnInit {
 
-  constructor() { }
+  constructor(private loadingCtrl: LoadingController, 
+    private router: Router, ) { }
 
   ngOnInit() {
     console.log('nop')
+  }
+  backl(){
+    this.router.navigate(['/']);
   }
 
 }

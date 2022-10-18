@@ -3,6 +3,7 @@ import { Router, NavigationExtras, RouterStateSnapshot } from '@angular/router';
 import { AnimationController, LoadingController, ToastController } from '@ionic/angular';
 import { Ialumnos } from 'src/app/interfaces/iusuarios';
 import { ApiuserService } from 'src/app/servicios/apiuser.service';
+import { BdlocalService } from 'src/app/servicios/bdlocal.service';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +19,14 @@ export class HomePage implements OnInit{
   @ViewChild('square', { read: ElementRef, static: true }) square: ElementRef;
   field: String = "";
 
+  valida:boolean = false;
   alumnos:Ialumnos[]=[];
-  constructor(private animationCtrl: AnimationController,private loadingCtrl: LoadingController, private router: Router, public toastController: ToastController, private apiUserService:ApiuserService) {}
+  constructor(private animationCtrl: AnimationController,
+    private loadingCtrl: LoadingController, 
+    private router: Router, 
+    public toastController: ToastController, 
+    private apiUserService:ApiuserService,
+    public bdLocal: BdlocalService) {}
 
   ngOnInit() {
     //invocando get api en coleccion
@@ -28,6 +35,7 @@ export class HomePage implements OnInit{
         this.alumnos.push(...resp.alumnos);
         console.log('user: ',resp.alumnos);
       });
+      
   }
   selector() {
     //verifico campos vacíos
@@ -35,10 +43,16 @@ export class HomePage implements OnInit{
       console.log('campo validado');
       //verifico el usuario antes de seguir( por corregir)
       if (this.validarUsuari()) {
+
         console.log('usuario validado');
-        var valida=true
-        console.log(valida+'este es valida positivo')
+        
+        this.valida=true
+        console.log(this.valida+' :este es valida positivo')
         //console.log(this.validarUsuario)
+
+        this.bdLocal.guardarLogin(this.valida)
+
+
         this.presentToast("Bienvenido " + this.user.usuario);
         let navigationExtras: NavigationExtras = {
         state: {
@@ -57,6 +71,7 @@ export class HomePage implements OnInit{
     }
 
   }
+
 
 
   validateModel(model: any) {
@@ -85,6 +100,10 @@ export class HomePage implements OnInit{
   }
 
 
+  notfound(){
+    this.router.navigate(['/notfound']);
+  }
+  
 
 
   async presentToast(msg: string, duracion?: number) {
@@ -124,5 +143,6 @@ export class HomePage implements OnInit{
       { offset: 1, transform: 'scale(1)' }
     ])
   }
+  
 
 }
