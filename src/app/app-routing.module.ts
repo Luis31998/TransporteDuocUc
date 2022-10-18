@@ -12,10 +12,7 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'notfound',
-    loadChildren: () => import('./Pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
-  },
+  
   {
     path: 'recuperar',
     loadChildren: () => import('./Pages/recuperar/recuperar.module').then( m => m.RecuperarPageModule)
@@ -28,6 +25,10 @@ const routes: Routes = [
   {
     path: 'recupera',
     loadChildren: () => import('./home/recuperar/recuperar.module').then( m => m.RecuperarPageModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./Pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
 ];
 
