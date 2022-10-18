@@ -50,7 +50,6 @@ export class HomePage implements OnInit {
         this.presentToast("Usuario no encontrado");
       }
       
-      
     }else{
       this.presentToast("Falta ingresar: "+this.field, 4500);
     }
@@ -72,23 +71,17 @@ export class HomePage implements OnInit {
 
   validarUsuari(){
     for (let elemento of this.alumnos){
-      console.log('user: '+ this.user.usuario);
-      console.log('contra: '+ this.user.password);
-      console.log('eleusa: '+ elemento.username);
-      console.log('elecontra:'+ elemento.password);
       if (this.user.usuario == elemento.username && this.user.password == elemento.password ){
-        // var encontrado = true
         return true;
       }else{
         var encontrado = false
-        // return false;
       }
-      
     };
     if (!encontrado){
       return false;
     };
   }
+
 
 
 
