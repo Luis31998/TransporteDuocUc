@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Provider } from '@angular/core';
 import { Router, NavigationExtras, RouterStateSnapshot } from '@angular/router';
 import { AnimationController, LoadingController, ToastController } from '@ionic/angular';
 import { Ialumnos } from 'src/app/interfaces/iusuarios';
@@ -9,11 +9,12 @@ import { ApiuserService } from 'src/app/servicios/apiuser.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit{
   user = {
     usuario: "",
     password: ""
   }
+
   @ViewChild('square', { read: ElementRef, static: true }) square: ElementRef;
   field: String = "";
 
@@ -27,7 +28,6 @@ export class HomePage implements OnInit {
         this.alumnos.push(...resp.alumnos);
         console.log('user: ',resp.alumnos);
       });
-    console.log('conf')
   }
   selector() {
     //verifico campos vacíos
@@ -36,6 +36,8 @@ export class HomePage implements OnInit {
       //verifico el usuario antes de seguir( por corregir)
       if (this.validarUsuari()) {
         console.log('usuario validado');
+        var valida=true
+        console.log(valida+'este es valida positivo')
         //console.log(this.validarUsuario)
         this.presentToast("Bienvenido " + this.user.usuario);
         let navigationExtras: NavigationExtras = {

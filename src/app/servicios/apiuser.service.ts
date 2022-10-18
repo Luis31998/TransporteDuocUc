@@ -19,11 +19,7 @@ export class ApiuserService {
 
   constructor(private http: HttpClient) { }
 
-  // getPosts(): Observable<any> {
-  //   return this.http.get(this.apiURL + '/posts/').pipe(
-  //     retry(3)
-  //   );
-  // }
+
 
   getUsers(): Observable<any> {
     return this.http.get<Iusuarios>(this.apiURL).pipe(
@@ -37,18 +33,5 @@ export class ApiuserService {
   //   );
   // }
 
-  // createPost(post): Observable<any> {
-  //   return this.http.post(this.apiURL + '/posts', post, this.httpOptions)
-  //     .pipe(
-  //       retry(3)
-  //     );
-  // }
-  // updatePost(id, post): Observable<any> {
-  //   return this.http.put(this.apiURL + '/posts/' + id, post, this.httpOptions).
-  //     pipe(retry(3));
-  // }
-
-  // deletePost(id): Observable<any> {
-  //   return this.http.delete(this.apiURL + '/posts/' + id, this.httpOptions);
-  // }
+  
 }
