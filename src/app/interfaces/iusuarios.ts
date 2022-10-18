@@ -2,8 +2,8 @@ export interface Iusuarios {
     alumnos: Ialumnos[]
 }
 export interface Ialumnos {
-    numId:number;
-    strNombre:string;
-    strUsername:string;
-    strPassword:string;
+    id:number;
+    nombre:string;
+    username:string;
+    password:string;
 }

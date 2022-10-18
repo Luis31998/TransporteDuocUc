@@ -34,8 +34,9 @@ export class HomePage implements OnInit {
     if (this.validateModel(this.user)) {
       console.log('campo validado');
       //verifico el usuario antes de seguir( por corregir)
-      if (this.validarUsuario) {
+      if (this.validarUsuari()) {
         console.log('usuario validado');
+        //console.log(this.validarUsuario)
         this.presentToast("Bienvenido " + this.user.usuario);
         let navigationExtras: NavigationExtras = {
         state: {
@@ -68,18 +69,27 @@ export class HomePage implements OnInit {
   }
 
   //crear
-  validarUsuario(){
-    
 
-    return true
-    // if (this.user.usuario == this.alumnos) {
-    //   return true;
+  validarUsuari(){
+    for (let elemento of this.alumnos){
+      console.log('user: '+ this.user.usuario);
+      console.log('contra: '+ this.user.password);
+      console.log('eleusa: '+ elemento.username);
+      console.log('elecontra:'+ elemento.password);
+      if (this.user.usuario == elemento.username && this.user.password == elemento.password ){
+        // var encontrado = true
+        return true;
+      }else{
+        var encontrado = false
+        // return false;
+      }
+      
+    };
+    if (!encontrado){
+      return false;
+    };
+  }
 
-    // }else{
-    //   return false
-    // }
-    // 
-}
 
 
   async presentToast(msg: string, duracion?: number) {
