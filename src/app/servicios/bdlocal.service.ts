@@ -25,23 +25,48 @@ export class BdlocalService {
     if (milogin) {
       this.login = milogin;
     }
+    console.log('local storage construido')
+    console.log(this.login)
   }
-  guardarLogin(log:boolean){
+  guardarLogin(log:string, usuario:string,contrasenna:string){
     //voy a restringir que no se guarden número telefónicos repetidos
     //creo un consulta LAMBDA para saber si existe el numero o no
-    const existe=this.login.find(c=>c.logeado==log);
+    console.log(log+' | '+usuario+' | '+contrasenna)
+    const existe=this.login.find(c=>c.username==log);
     if(!existe){
-      this.login.unshift({logeado:log});
-      this._storage.set('agenda',this.login);
+      this.login.unshift({logeado:log, username:usuario, password:contrasenna});
+      console.log(this._storage+'1')
+      this._storage.set('login',this.login);
+      console.log(this._storage+'2')
       this.presentToast("sesion iniciada .")
     }else{
-      this.presentToast("")
+      this.presentToast("ya estaba")
     }
   }
+  
   async obtenerSesion(){
+    const existe=this.login.find(c=>c.logeado=='true');
+    let ob
+    if(!existe){
+      // ob = 'false'
+      console.log('no lo encontro')
+      return false
+      
+    }else{
+      // ob = 'true'
+      console.log('si lo encontro')
+      return true
+      
+    }
+    // return ob;
+  }
+  
+  async obtenerUsuario(){
     const thislogin = await this.storage.get('login');
-    console.log(thislogin+'esto es thislogin')
-    return thislogin;
+    console.log(thislogin.username+'esto es thislogin username en obtener usuario')
+    console.log(thislogin.password+'esto es thislogin password en obtener usuario')
+    console.log(thislogin.logeado+'esto es thislogin logeado en obtener usuario')
+    return thislogin.username;
   }
   async presentToast(msg:string) {
     const toast = await this.toastController.create({
