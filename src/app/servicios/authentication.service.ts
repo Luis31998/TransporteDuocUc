@@ -13,13 +13,22 @@ export class AuthenticationService {
 
   isAuthenticated() {
 
+    let sess = this.bdLocal.obtenerSesion()
+    console.log(sess+' : esto es sess')
+    if (sess){
+      console.log('parece que es true')
+
+    }else{
+      console.log('sino es false')
+    }
     let bool
     if (this.bdLocal.obtenerSesion){
       bool=true;
     }else{
       bool=false;
     }
-    console.log(bool+' bo and : '+this.bdLocal.obtenerSesion)
+    const obt = this.bdLocal.obtenerSesion
+    console.log(bool+' bo and : '+ obt)
     return bool;
 
     // let bool=false;

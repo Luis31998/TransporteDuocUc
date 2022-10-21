@@ -1,3 +1,5 @@
 export interface Ilogin {
-    logeado: boolean
+    logeado: string;
+    username: string;
+    password: string;
 }

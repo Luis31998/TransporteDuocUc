@@ -19,7 +19,7 @@ export class HomePage implements OnInit{
   @ViewChild('square', { read: ElementRef, static: true }) square: ElementRef;
   field: String = "";
 
-  valida:boolean = false;
+  valida:string = 'false';
   alumnos:Ialumnos[]=[];
   constructor(private animationCtrl: AnimationController,
     private loadingCtrl: LoadingController, 
@@ -29,6 +29,7 @@ export class HomePage implements OnInit{
     public bdLocal: BdlocalService) {}
 
   ngOnInit() {
+    
     //invocando get api en coleccion
     this.apiUserService.getUsers().subscribe(resp=>
       {
@@ -46,11 +47,11 @@ export class HomePage implements OnInit{
 
         console.log('usuario validado');
         
-        this.valida=true
+        this.valida='true'
         console.log(this.valida+' :este es valida positivo')
         //console.log(this.validarUsuario)
 
-        this.bdLocal.guardarLogin(this.valida)
+        this.bdLocal.guardarLogin(this.valida, this.user.usuario, this.user.password)
 
 
         this.presentToast("Bienvenido " + this.user.usuario);

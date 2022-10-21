@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Viajes } from 'src/app/Clases/viajes';
+import { DbserviceService } from 'src/app/servicios/dbservice.service';
 
 @Component({
   selector: 'app-componente-alumnos',
@@ -7,16 +9,25 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./componente-alumnos.component.scss'],
 })
 export class ComponenteAlumnosComponent implements OnInit {
-  userp: any;
+  
+  viajes: Viajes[];
 
-  constructor(private activeroute: ActivatedRoute, private router: Router) { 
-    this.activeroute.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.userp = this.router.getCurrentNavigation().extras.state.userp;
+  constructor(private dbservice: DbserviceService, private router: Router) { 
+    
+  }
+
+  ngOnInit() {
+    this.dbservice.dbState().subscribe((res)=>{
+      if(res){
+        this.dbservice.fetchViajes().subscribe(item=>{
+          this.viajes=item;
+        })
       }
     })
   }
 
-  ngOnInit() {}
+  elegir(item){
+    this.dbservice.presentToast("Viaje seleccionado: "+item.id);
+  }
 
 }

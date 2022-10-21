@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { Viajes } from 'src/app/Clases/viajes';
+import { DbserviceService } from 'src/app/servicios/dbservice.service';
 
 @Component({
   selector: 'app-componente-chofer',
@@ -7,19 +9,37 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./componente-chofer.component.scss'],
 })
 export class ComponenteChoferComponent implements OnInit {
-  data:any
+  conductorViaje="";
+  capacidadViaje="";
+  vehiculoViaje="";
+  matriculaViaje="";
+  salidaViaje="";
+  costoViaje="";
 
-  constructor(private activeroute: ActivatedRoute, private router: Router) {
-    this.activeroute.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.data = this.router.getCurrentNavigation().extras.state.chofer;
-      }
-    })
+  viajes: Viajes[];
+
+  constructor(private dbservice: DbserviceService, private router: Router) {
+    
    }
 
   ngOnInit() {
-
+    this.dbservice.dbState().subscribe((res)=>{
+      if(res){
+        this.dbservice.fetchViajes().subscribe(item=>{
+          this.viajes=item;
+        })
+      }
+    })
   };
-  publicar(){};
+  publicar(){
+    this.dbservice.addViaje(this.conductorViaje,this.capacidadViaje,this.vehiculoViaje,this.matriculaViaje,this.salidaViaje,this.costoViaje);
+    this.dbservice.presentToast("Viaje agregado");
+    this.router.navigate(['/principal/dos']);
+  };
+
+  eliminar(item) {
+    this.dbservice.deleteViaje(item.id);
+    this.dbservice.presentToast("Viaje Eliminado");
+  }
 
 }
