@@ -33,7 +33,7 @@ export class ComponenteChoferComponent implements OnInit {
    }
 
   ngOnInit() {
-    var conductor = localStorage.getItem('usuario')
+    this.getResultados();
     
   };
   
