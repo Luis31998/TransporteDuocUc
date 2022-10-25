@@ -1,0 +1,184 @@
+{
+  "alumnos": [
+    {
+      "id": 1,
+      "nombre": "FRANCISCO JAVIER ABARCA COCK",
+      "username": "fran.abarca",
+      "password": "123456"      
+    },
+    {
+      "id": 2,
+      "nombre": "LUCAS NICOLAS ALEGRE GALLARDO",
+      "username": "lu.alegre",
+      "password": "123456"     
+    },
+    {
+      "id": 3,
+      "nombre": "GUILLERMO BASTIAN ARENAS PINTO",
+      "username": "guil.arenas",
+      "password": "123456"     
+    },
+    {
+      "id": 4,
+      "nombre": "MIGUEL ALEJANDRO ASTORGA LEIVA",
+      "username": "mi.astorgal",
+      "password": "123456"     
+    },
+    {
+      "id": 5,
+      "nombre": "BASTIAN ANDRES CACERES GONZALEZ",
+      "username": "ba.caceres",
+      "password": "123456"
+    },
+    {
+      "id": 6,
+      "nombre": "FABIAN ALEXIS CALDERON PEREZ",
+      "username": "fabi.calderon",
+      "password": "123456"
+    },
+    {
+      "id": 7,
+      "nombre": "MANUEL ALEJANDRO CALDERON SUAREZ",
+      "username": "man.calderon",
+      "password": "123456"
+    },
+    {
+      "id": 8,
+      "nombre": "FREDDY GABRIEL CANEO PACHECO",
+      "username": "fre.caneo",
+      "password": "123456"
+    },
+    {
+      "id": 9,
+      "nombre": "FELIPE ALEJANDRO CHACANA LEAL",
+      "username": "fel.chacana",
+      "password": "123456"
+    },
+    {
+      "id": 10,
+      "nombre": "ORLANDO ESTEBAN COLLAO MERCADO",
+      "username": "or.collao",
+      "password": "123456"
+    },
+    {
+      "id": 11,
+      "nombre": "JAVIER RENATO CORTES CARLE",
+      "username": "javi.cortesc",
+      "password": "123456"
+    },
+    {
+      "id": 12,
+      "nombre": "ESTEBAN ANDRES CORTES DONOSO",
+      "username": "es.cortesd",
+      "password": "123456"
+    },
+    {
+      "id": 13,
+      "nombre": "MARIA FERNANDA CORTEZ GONZALEZ",
+      "username": "ma.cortezg",
+      "password": "123456"
+    },
+    {
+      "id": 14,
+      "nombre": "SEBASTIAN FELIPE CRUZ ORTEGA",
+      "username": "se.cruz",
+      "password": "123456"
+    },
+    {
+      "id": 15,
+      "nombre": "NICOLAS ANDRES DIAZ ESPINOZA",
+      "username": "nic.diaze",
+      "password": "123456"
+    },
+    {
+      "id": 16,
+      "nombre": "BASTIAN RODRIGO DIAZ PALMA",
+      "username": "basti.diazp",
+      "password": "123456"
+    },
+    {
+      "id": 17,
+      "nombre": "JAVIER ANDRES ESPINDOLA CORTEZ",
+      "username": "ja.espindola",
+      "password": "123456"
+    },
+    {
+      "id": 18,
+      "nombre": "CRISTOBAL GONZALO GARRIDO CANAS",
+      "username": "cr.garridoc",
+      "password": "123456"
+    },
+    {
+      "id": 19,
+      "nombre": "NOEMI MERARI GONZALEZ AGURTO",
+      "username": "no.gonzalez",
+      "password": "123456"
+    },
+    {
+      "id": 20,
+      "nombre": "DANIEL IGNACIO GONZALEZ MENESES",
+      "username": "dai.gonzalez",
+      "password": "123456"
+    },
+    {
+      "id": 21,
+      "nombre": "IGNACIO ANDRES GONZALEZ VIDAL",
+      "username": "ig.gonzalez",
+      "password": "123456"
+    },
+    {
+      "id": 22,
+      "nombre": "ALVARO AARON HERNANDEZ NUNEZ",
+      "username": "alv.hernandez",
+      "password": "123456"
+    },
+    {
+      "id": 23,
+      "nombre": "SEBASTIAN LOPEZ GUERRA",
+      "username": "se.lopez",
+      "password": "123456"
+    },
+    {
+      "id": 24,
+      "nombre": "GUILLERMO JAVIER SILVA CERDA",
+      "username": "gu.silvac",
+      "password": "123456"
+    },
+    {
+      "id": 25,
+      "nombre": "BORIS ALEXANDER TOBAR MIRANDA",
+      "username": "bo.tobar",
+      "password": "123456"
+    },
+    {
+      "id": 26,
+      "nombre": "JUAN PABLO VALDIVIA CONTRERAS",
+      "username": "ju.valdivia",
+      "password": "123456"
+    },
+    {
+      "id": 27,
+      "nombre": "LUIS VALDIVIA VASQUEZ",
+      "username": "lu.valdiviav",
+      "password": "123456"
+    },
+    {
+      "id": 28,
+      "nombre": "SEBASTIAN VARGAS BERMEJO",
+      "username": "seba.vargas",
+      "password": "123456"
+    },
+    {
+      "id": 29,
+      "nombre": "DARIO IGNACIO VERA MUÑOZ",
+      "username": "da.vera",
+      "password": "123456"
+    },
+    {
+      "id": 30,
+      "nombre": "MATIAS VILLEGAS TORRES",
+      "username": "ma.villegas",
+      "password": "123456"
+    } 
+  ]
+}

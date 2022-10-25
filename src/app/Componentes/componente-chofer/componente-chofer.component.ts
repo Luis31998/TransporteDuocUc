@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Viajes } from 'src/app/Clases/viajes';
+import { publicacion } from 'src/app/interfaces/iusuarios';
 import { DbserviceService } from 'src/app/servicios/dbservice.service';
+import { FirestoreService } from 'src/app/servicios/firestore.service';
 
 @Component({
   selector: 'app-componente-chofer',
@@ -9,32 +11,56 @@ import { DbserviceService } from 'src/app/servicios/dbservice.service';
   styleUrls: ['./componente-chofer.component.scss'],
 })
 export class ComponenteChoferComponent implements OnInit {
-  conductorViaje="";
-  capacidadViaje="";
-  vehiculoViaje="";
-  matriculaViaje="";
-  salidaViaje="";
-  costoViaje="";
+  
+  
+  data : publicacion = {
+    viaje : {
+      conductorViaje:'',
+      capacidadViaje:"",
+      vehiculoViaje:"",
+      matriculaViaje:"",
+      salidaViaje:"",
+      costoViaje:""
+    }
+    
+  }
+  publicaciones: publicacion[] = [];
+  
 
-  viajes: Viajes[];
 
-  constructor(private dbservice: DbserviceService, private router: Router) {
+  constructor(private dbservice: DbserviceService, private router: Router, private database: FirestoreService) {
     
    }
 
   ngOnInit() {
-    this.dbservice.dbState().subscribe((res)=>{
-      if(res){
-        this.dbservice.fetchViajes().subscribe(item=>{
-          this.viajes=item;
-        })
-      }
-    })
+    var conductor = localStorage.getItem('usuario')
+    
   };
+  
+  getResultados() {
+
+    const path = 'Publicaciones';
+    this.database.getCollection<publicacion>(path).subscribe( res => {
+        console.log('esta es la lectura', res);
+        this.publicaciones = res;
+    })
+
+  }
+
+  
+//
   publicar(){
-    this.dbservice.addViaje(this.conductorViaje,this.capacidadViaje,this.vehiculoViaje,this.matriculaViaje,this.salidaViaje,this.costoViaje);
-    this.dbservice.presentToast("Viaje agregado");
-    this.router.navigate(['/principal/dos']);
+    this.data.viaje.conductorViaje= localStorage.getItem('usuario')
+    console.log('data publicacions: '+ this.data.viaje)
+    
+    const path = 'Publicaciones';
+      const id = this.database.getId();
+      //this.data.id = id;
+      this.database.createDoc(this.data, path, id).then( () => {
+          console.log('guardado con exito -> ');
+          this.database.presentToast('Guardado con exito')
+      } )
+
   };
 
   eliminar(item) {

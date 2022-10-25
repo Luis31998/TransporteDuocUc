@@ -27,14 +27,34 @@ export class DbserviceService {
       this.sqlite.create({
         name: 'viajes.db',
         location: 'default'
-      }).then((db: SQLiteObject) => {
-        this.database = db;
-        this.presentToast("BD creada");
-        //llamo a crear la(s) tabla(s)
-        this.crearTablas();
-        }).catch(e => this.presentToast(e));
+      })//.catch(e => this.presentToast(e));
+        // .then((db: SQLiteObject) => {
+        //   this.database = db;
+        //   this.presentToast("BD creada");
+        //   //llamo a crear la(s) tabla(s)
+        //   this.crearTablas();
+        //   }).catch(e => this.presentToast(e));
     })
   }
+
+  // crearB(){
+  //   this.platform.ready().then(() => {
+  //     this.sqlite.create({
+  //       name: 'viajes.db',
+  //       location: 'default'
+  //     })
+  //       .then((db: SQLiteObject) => {
+  //         this.database = db;
+  //         this.presentToast("BD creada");
+  //         //llamo a crear la(s) tabla(s)
+  //         this.crearTablas();
+      
+      
+  //       })
+  //       .catch(e => this.presentToast(e));
+  //   })
+  // }
+
 
   async crearTablas() {
     try {

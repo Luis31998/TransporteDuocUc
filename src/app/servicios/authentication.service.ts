@@ -8,46 +8,21 @@ import { BdlocalService } from './bdlocal.service';
 })
 export class AuthenticationService {
 
+
   constructor(public bdLocal: BdlocalService) { }
 
 
+  //
+  
+  // insession(){}
+
+  //
   isAuthenticated() {
-
-    let sess = this.bdLocal.obtenerSesion()
-    console.log(sess+' : esto es sess')
-    if (sess){
-      console.log('parece que es true')
-
+    if (localStorage.getItem('session') == 'true'){
+      return true
     }else{
-      console.log('sino es false')
+      return false
     }
-    let bool
-    if (this.bdLocal.obtenerSesion){
-      bool=true;
-    }else{
-      bool=false;
-    }
-    const obt = this.bdLocal.obtenerSesion
-    console.log(bool+' bo and : '+ obt)
-    return bool;
-
-    // let bool=false;
-    // let vand
-    // if (this.home.validan){
-    //   vand =this.home.validan
-    //   console.log(vand)
-    //   console.log('funciono? ...   ¡¡¡¡funciona!!!')
-    //   bool= true;
-    //   console.log(bool+' :esto es bool')
-    // }else{
-    //   console.log('funciono? ... ¡¡¡¡noooo!!!')
-    //   bool= false;
-    //   console.log(bool+' :esto es bool')
-    // }
-
-    // return bool
-    
-    
   }
   
 }

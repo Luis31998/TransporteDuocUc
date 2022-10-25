@@ -14,7 +14,7 @@ export class PrincipalPage implements OnInit {
   constructor(private router: Router, public bdLocal: BdlocalService) {
     
     console.log('usuario: '+this.bdLocal.obtenerUsuario)
-    this.usuario= this.bdLocal.obtenerUsuario
+    this.usuario= this.bdLocal.obtenerUsuario()
     console.log('nombre usuario obtenido y en variable: '+ this.usuario)
     
     this.router.navigate(['principal/uno']);
@@ -28,6 +28,15 @@ export class PrincipalPage implements OnInit {
   }
 
   ngOnInit() {
+    this.usuario = localStorage.getItem('usuario')
+  }
+  cerrar(){
+    localStorage.setItem('session', 'false');
+    this.router.navigate(['home'])
+    //separar usuario de sesion iniciada?
+    //
+    // this.bdLocal.guardarLogin('false',)
+    
   }
 
 }

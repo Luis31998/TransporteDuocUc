@@ -38,30 +38,32 @@ export class HomePage implements OnInit{
       });
       
   }
-  selector() {
+  login() {
     //verifico campos vacíos
     if (this.validateModel(this.user)) {
       console.log('campo validado');
       //verifico el usuario antes de seguir( por corregir)
       if (this.validarUsuari()) {
-
         console.log('usuario validado');
-        
+
+        //-------
         this.valida='true'
         console.log(this.valida+' :este es valida positivo')
         //console.log(this.validarUsuario)
 
         this.bdLocal.guardarLogin(this.valida, this.user.usuario, this.user.password)
+        //--------------
 
+        localStorage.setItem('session', this.valida);
+        //var objuser = {'username': this.user.usuario, 'password':this.user.password}
+        // localStorage.setItem('usuario', JSON.stringify(this.user))
+        localStorage.setItem('usuario', this.user.usuario);
+        localStorage.setItem('password', this.user.password)
 
         this.presentToast("Bienvenido " + this.user.usuario);
-        let navigationExtras: NavigationExtras = {
-        state: {
-          user: this.user
-          }
-        };
+        
         this.showLoading();
-        this.router.navigate(['/principal/uno'], navigationExtras);
+        this.router.navigate(['/principal/uno']);
         console.log('yep')
       }else{
         this.presentToast("Usuario no encontrado");

@@ -8,6 +8,7 @@ import { Ilogin } from '../interfaces/ilogin';
 })
 export class BdlocalService {
 
+  
   login: Ilogin[] = [];
   private _storage: Storage | null = null;
   constructor(private storage: Storage, public toastController:ToastController) {
@@ -32,30 +33,32 @@ export class BdlocalService {
     //voy a restringir que no se guarden número telefónicos repetidos
     //creo un consulta LAMBDA para saber si existe el numero o no
     console.log(log+' | '+usuario+' | '+contrasenna)
-    const existe=this.login.find(c=>c.username==log);
+    const existe=this.login.find(c=>c.username==usuario);
     if(!existe){
       this.login.unshift({logeado:log, username:usuario, password:contrasenna});
       console.log(this._storage+'1')
-      this._storage.set('login',this.login);
+      this._storage?.set('login',this.login);
       console.log(this._storage+'2')
       this.presentToast("sesion iniciada .")
+      // this._storage.get.it aparece metodo tostring() ¿sera la respuesta?
     }else{
       this.presentToast("ya estaba")
     }
   }
   
-  async obtenerSesion(){
+  async obtenerSesion(bool){
+    //usar una busqueda del ultimo [0] item
     const existe=this.login.find(c=>c.logeado=='true');
-    let ob
+    // let ob
     if(!existe){
-      // ob = 'false'
+      bool = false
       console.log('no lo encontro')
-      return false
+      return bool
       
     }else{
-      // ob = 'true'
-      console.log('si lo encontro')
-      return true
+      bool = 'true'
+      console.log(existe.logeado+' ..si lo encontro')
+      return bool
       
     }
     // return ob;

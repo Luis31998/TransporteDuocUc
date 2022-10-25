@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>usuaroi</ion-title>
+    <ion-title>{{usuario}}</ion-title>
   </ion-toolbar>
   <ion-toolbar>
     <ion-segment value="uno" (ionChange)="segmentChanged($event)">
@@ -17,3 +17,8 @@
 <ion-content>
   <ion-router-outlet></ion-router-outlet>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button (click)="cerrar()">Cerrar sesion</ion-button>
+  </ion-toolbar>
+</ion-footer>
