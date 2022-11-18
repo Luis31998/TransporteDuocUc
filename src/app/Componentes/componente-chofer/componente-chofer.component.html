@@ -30,7 +30,7 @@
         </ion-item>
         <ion-item>
           <ion-label position="stacked">costo por persona</ion-label>
-          <ion-input type="number" [(ngModel)]="data.viaje.costoViaje"></ion-input>
+          <ion-input type="number" max="3500" [(ngModel)]="data.viaje.costoViaje"></ion-input>
         </ion-item>
         <ion-row>
           <ion-col>
@@ -48,14 +48,16 @@
     </ion-card-title>
     <ion-card-content>
       <div *ngFor="let publicacion of publicaciones">
-        <p></p>
-        <h3>{{publicacion.viaje.conductorViaje}}</h3>
-        <h3>{{publicacion.viaje.capacidadViaje}}</h3>
-        <h3>{{publicacion.viaje.vehiculoViaje}}</h3>
-        <h3>{{publicacion.viaje.matriculaViaje}}</h3>
-        <h3>{{publicacion.viaje.salidaViaje}}</h3>
-        <h3>{{publicacion.viaje.costoViaje}}</h3>
-        <p></p>
+        <ion-card>
+          <ion-card-content>
+            <h3>Conductor: {{publicacion.viaje.conductorViaje}}</h3>
+            <h3>Capacidad: {{publicacion.viaje.capacidadViaje}}</h3>
+            <h3>Color del Vehiculo: {{publicacion.viaje.vehiculoViaje}}</h3>
+            <h3>Matricula: {{publicacion.viaje.matriculaViaje}}</h3>
+            <h3>Hora de salida: {{publicacion.viaje.salidaViaje}}</h3>
+            <h3>Costo de viaje: {{publicacion.viaje.costoViaje}}</h3>
+          </ion-card-content>
+        </ion-card>
       </div>
     </ion-card-content>
   </ion-card>

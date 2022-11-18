@@ -29,13 +29,13 @@ export class BdlocalService {
     console.log('local storage construido')
     console.log(this.login)
   }
-  guardarLogin(log:string, usuario:string,contrasenna:string){
+  guardarLogin(log:string, usuario:string,contrasenna:string, rolusu:string){
     //voy a restringir que no se guarden número telefónicos repetidos
     //creo un consulta LAMBDA para saber si existe el numero o no
     console.log(log+' | '+usuario+' | '+contrasenna)
     const existe=this.login.find(c=>c.username==usuario);
     if(!existe){
-      this.login.unshift({logeado:log, username:usuario, password:contrasenna});
+      this.login.unshift({logeado:log, username:usuario, password:contrasenna, rol:rolusu});
       console.log(this._storage+'1')
       this._storage?.set('login',this.login);
       console.log(this._storage+'2')
@@ -69,6 +69,7 @@ export class BdlocalService {
     console.log(thislogin.username+'esto es thislogin username en obtener usuario')
     console.log(thislogin.password+'esto es thislogin password en obtener usuario')
     console.log(thislogin.logeado+'esto es thislogin logeado en obtener usuario')
+    console.log(thislogin.rol+'esto es thislogin rol de usuario en obtener usuario')
     return thislogin.username;
   }
   async presentToast(msg:string) {

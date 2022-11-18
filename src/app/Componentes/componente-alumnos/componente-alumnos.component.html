@@ -44,5 +44,27 @@
         </ion-item-sliding>
       </ion-list>
     </ion-card-content>
-  </ion-card>      
+  </ion-card>
+
+  <ion-card>
+    <ion-card-title id="bienven">
+      <!-- <h1></h1>  -->
+      <h4>Movilizaciones publicadas</h4>
+    </ion-card-title>
+    <ion-card-content>
+      <div *ngFor="let publicacion of publicaciones">
+        <ion-card>
+          <ion-card-content>
+            <h3>Conductor: {{publicacion.viaje.conductorViaje}}</h3>
+            <h3>Capacidad: {{publicacion.viaje.capacidadViaje}}</h3>
+            <h3>Color del Vehiculo: {{publicacion.viaje.vehiculoViaje}}</h3>
+            <h3>Matricula: {{publicacion.viaje.matriculaViaje}}</h3>
+            <h3>Hora de salida: {{publicacion.viaje.salidaViaje}}</h3>
+            <h3>Costo de viaje: {{publicacion.viaje.costoViaje}}</h3>
+            <ion-button (click)="seleccionar()">Seleccionar</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

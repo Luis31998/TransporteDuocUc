@@ -37,7 +37,7 @@ export class ComponenteChoferComponent implements OnInit {
     
   };
   
-  getResultados() {
+  async getResultados() {
 
     const path = 'Publicaciones';
     this.database.getCollection<publicacion>(path).subscribe( res => {

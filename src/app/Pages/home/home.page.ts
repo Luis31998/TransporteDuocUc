@@ -20,6 +20,7 @@ export class HomePage implements OnInit{
   field: String = "";
 
   valida:string = 'false';
+  ro:string = 'false';
   alumnos:Ialumnos[]=[];
   constructor(private animationCtrl: AnimationController,
     private loadingCtrl: LoadingController, 
@@ -48,10 +49,12 @@ export class HomePage implements OnInit{
 
         //-------
         this.valida='true'
+        this.ro='alumno'
+        
         console.log(this.valida+' :este es valida positivo')
         //console.log(this.validarUsuario)
 
-        this.bdLocal.guardarLogin(this.valida, this.user.usuario, this.user.password)
+        this.bdLocal.guardarLogin(this.valida, this.user.usuario, this.user.password, this.ro)
         //--------------
 
         localStorage.setItem('session', this.valida);

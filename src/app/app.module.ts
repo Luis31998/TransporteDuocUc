@@ -19,11 +19,13 @@ import { HomePage } from './Pages/home/home.page';
 import { BdlocalService } from './servicios/bdlocal.service';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { environment } from 'src/environments/environment';
+import { EmailComposer } from '@awesome-cordova-plugins/email-composer/ngx';
+
 
 @NgModule({
   declarations: [AppComponent], entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot(), AngularFireModule.initializeApp(environment.firebaseConfig), AngularFirestoreModule, AngularFireAuthModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },{provide:HomePage},{provide:BdlocalService},SQLite],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },{provide:HomePage},{provide:BdlocalService},SQLite,,EmailComposer],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
